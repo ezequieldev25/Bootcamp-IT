@@ -1,9 +1,9 @@
 public class Persona {
 
     public static void main(String[] args) {
-        Persona personaSinParametros = new Persona();
-        Persona personaConNombreApellidoDni = new Persona("Carlos", 10, "22330000");
-        Persona personaConTodosLosParametros = new Persona("Carlos", 10, "22330000", 80, 180);
+        // Persona personaSinParametros = new Persona();
+        // Persona personaConNombreApellidoDni = new Persona("Carlos", 10, "22330000");
+        // Persona personaConTodosLosParametros = new Persona("Carlos", 10, "22330000", 80, 180);
         // Persona personaConNombreEdad = new Persona("Carlos", 50);
     }
 

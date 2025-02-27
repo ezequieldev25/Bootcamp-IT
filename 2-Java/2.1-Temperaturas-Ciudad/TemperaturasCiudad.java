@@ -29,6 +29,7 @@ public class TemperaturasCiudad {
         }
         
         mostrarTemperaturas(ciudades, temperaturas);
+        input.close();
     }
 
     private static void mostrarTemperaturas(String[] ciudades, int[][] temperaturas){
