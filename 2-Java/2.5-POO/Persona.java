@@ -4,7 +4,7 @@ public class Persona {
         Persona personaSinParametros = new Persona();
         Persona personaConNombreApellidoDni = new Persona("Carlos", 10, "22330000");
         Persona personaConTodosLosParametros = new Persona("Carlos", 10, "22330000", 80, 180);
-        Persona personaConNombreEdad = new Persona("Carlos", 50);
+        // Persona personaConNombreEdad = new Persona("Carlos", 50);
     }
 
     String nombre;
@@ -29,7 +29,5 @@ public class Persona {
         this.altura = altura;
     }
 
-    // peso/(altura^2) - (peso expresado en kg y altura en mts)
-    
-    
+    // peso/(altura^2) - (peso expresado en kg y altura en mts)    
 }
