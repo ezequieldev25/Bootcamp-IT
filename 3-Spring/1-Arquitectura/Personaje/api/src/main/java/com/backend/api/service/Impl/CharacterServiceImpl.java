@@ -3,6 +3,8 @@ package com.backend.api.service.Impl;
 
 
 import com.backend.api.dtos.CharacterDTO;
+import com.backend.api.entities.CharacterEntity;
+import com.backend.api.exception.ExistEntityException;
 import com.backend.api.mapper.CharacterMapper;
 import com.backend.api.repository.CharacterRepository;
 import com.backend.api.service.CharacterService;
@@ -25,6 +27,16 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public CharacterDTO createCharacter(CharacterDTO characterDTO) {
-        return characterMapper.toCharacterDTO(characterRepository.save(characterMapper.toCharacter(characterDTO)));
+        CharacterEntity characterSaved = characterRepository.save(characterMapper.toCharacter(characterDTO));
+        if(characterSaved == null) throw new ExistEntityException("Ya existe el personaje");
+        return characterMapper.toCharacterDTO(characterSaved);
+    }
+
+    @Override
+    public List<CharacterDTO> searchByName(String name) {
+        return characterRepository.findAll().stream()
+                .filter(characterEntity -> characterEntity.getName().equals(name))
+                .map(characterMapper::toCharacterDTO)
+                .toList();
     }
 }

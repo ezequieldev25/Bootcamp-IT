@@ -22,9 +22,11 @@ public class CharacterController {
 
     @PostMapping
     public ResponseEntity<CharacterDTO> post(@RequestBody CharacterDTO request) {
-        CharacterDTO response = characterService.createCharacter(request);
-        if(response == null) return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(characterService.createCharacter(request));
+    }
 
-        return ResponseEntity.ok(response);
+    @GetMapping("/{name}")
+    public ResponseEntity<List<CharacterDTO>> getByName(@PathVariable String name){
+        return ResponseEntity.ok(characterService.searchByName(name));
     }
 }
