@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CharacterService {
 
-    List<CharacterDTO> getAllCharacters() throws IOException;
+    List<CharacterDTO> getAllCharacters();
+    CharacterDTO createCharacter(CharacterDTO characterDTO);
 }

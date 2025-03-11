@@ -16,5 +16,4 @@ public class CharacterDTO {
     String gender;
     String homeworld;
     String species;
-    String hairColor;
 }

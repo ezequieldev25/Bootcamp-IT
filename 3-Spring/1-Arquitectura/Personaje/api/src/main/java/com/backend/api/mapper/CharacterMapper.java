@@ -13,4 +13,10 @@ public class CharacterMapper {
         BeanUtils.copyProperties(character, characterDTO);
         return characterDTO;
     }
+
+    public CharacterEntity toCharacter(CharacterDTO characterDTO){
+        CharacterEntity character = new CharacterEntity();
+        BeanUtils.copyProperties(characterDTO, character);
+        return character;
+    }
 }

@@ -9,7 +9,6 @@ import com.backend.api.service.CharacterService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -20,7 +19,12 @@ public class CharacterServiceImpl implements CharacterService {
     private final CharacterMapper characterMapper;
 
     @Override
-    public List<CharacterDTO> getAllCharacters() throws IOException {
+    public List<CharacterDTO> getAllCharacters() {
         return characterRepository.findAll().stream().map(characterMapper::toCharacterDTO).toList();
+    }
+
+    @Override
+    public CharacterDTO createCharacter(CharacterDTO characterDTO) {
+        return characterMapper.toCharacterDTO(characterRepository.save(characterMapper.toCharacter(characterDTO)));
     }
 }
