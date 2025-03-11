@@ -13,8 +13,13 @@ public class MorseController {
 
     private final MorseService morseService;
 
-    @GetMapping("/translate/{text}")
+    @GetMapping("/translate/morse/{text}")
     public ResponseEntity<String> translateToSpain(@PathVariable String text) {
         return ResponseEntity.ok(morseService.translateToSpain(text));
+    }
+
+    @GetMapping("/translate/spain/{morse}")
+    public ResponseEntity<String> translateSpainToMorse(@PathVariable String morse){
+        return ResponseEntity.ok(morseService.translateSpainToMorse(morse));
     }
 }
